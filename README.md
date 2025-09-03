@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Ivan Henrique - Portfólio
 
-## Getting Started
+Portfólio pessoal desenvolvido com Next.js 15, TypeScript e Tailwind CSS.
 
-First, run the development server:
+## ✨ Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Design Responsivo**: Funciona perfeitamente em todos os dispositivos
+- **Modo Escuro**: Suporte completo a tema escuro/claro
+- **Performance**: Otimizado com Next.js 15 e Turbopack
+- **TypeScript**: Código totalmente tipado para melhor manutenibilidade
+- **Tailwind CSS**: Estilização moderna e consistente
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Estilização**: Tailwind CSS 4
+- **Deploy**: Vercel (recomendado)
+
+## 📁 Estrutura do Projeto
+
+```
+app/
+├── components/
+│   ├── ui/           # Componentes básicos (Button, Card, etc.)
+│   ├── sections/     # Seções do portfólio (Hero, About, etc.)
+│   └── layout/       # Componentes de layout
+├── lib/              # Utilitários e dados
+├── types/            # Tipos TypeScript
+└── styles/           # Estilos globais
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Como Executar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/ivanhrq/portfolio.git
+   cd portfolio
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Instale as dependências**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Execute em desenvolvimento**
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Abra no navegador**
+   ```
+   http://localhost:3000
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Personalização
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Dados do Portfólio
+Edite o arquivo `app/lib/data.ts` para personalizar:
+- Projetos
+- Habilidades
+- Informações de contato
+- Links sociais
 
-## Deploy on Vercel
+### Estilos
+- Modifique `app/globals.css` para estilos globais
+- Use as classes do Tailwind CSS para estilização
+- Personalize as cores no arquivo de configuração do Tailwind
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Componentes
+- Cada seção está em `app/components/sections/`
+- Componentes reutilizáveis em `app/components/ui/`
+- Layout principal em `app/layout.tsx`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Seções Incluídas
+
+1. **Hero**: Apresentação principal
+2. **About**: Sobre você
+3. **Skills**: Habilidades técnicas
+4. **Projects**: Projetos em destaque
+5. **Contact**: Formulário de contato
+
+## 📱 Responsividade
+
+O portfólio é totalmente responsivo e funciona em:
+- 📱 Mobile (320px+)
+- 📱 Tablet (768px+)
+- 💻 Desktop (1024px+)
+- 🖥️ Large screens (1280px+)
+
+## 🚀 Deploy
+
+### Vercel (Recomendado)
+1. Conecte seu repositório ao Vercel
+2. Deploy automático a cada push
+3. Otimizações automáticas do Next.js
+
+### Outras plataformas
+- Netlify
+- Railway
+- AWS Amplify
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+- Reportar bugs
+- Sugerir melhorias
+- Enviar pull requests
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+## 📞 Contato
+
+- **Email**: ivan@email.com
+- **LinkedIn**: [ivanhrq](https://linkedin.com/in/ivanhrq)
+- **GitHub**: [ivanhrq](https://github.com/ivanhrq)
+
+---
+
+⭐ Se este projeto te ajudou, considere dar uma estrela!
