@@ -1,0 +1,35 @@
+.button {
+    margin-top: 10px;
+    border-radius: 60px;
+    border: 2px solid white;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: white;
+    color: #0D0C1D;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Tablet (a partir de 768px) */
+@media (min-width: 768px) {
+    .button {
+        padding: 16px 32px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Telas muito grandes (acima de 1920px) */
+@media (min-width: 1920px) {
+    .button {
+        padding: 18px 36px;
+        font-size: 1.2rem;
+    }
+}
