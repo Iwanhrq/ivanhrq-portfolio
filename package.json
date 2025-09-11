@@ -8,6 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "critters": "0.0.25",
+    "framer-motion": "12.23.12",
+    "lucide": "^0.544.0",
+    "lucide-react": "^0.544.0",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",

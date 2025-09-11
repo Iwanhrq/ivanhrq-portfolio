@@ -1,45 +1,69 @@
+"use client"
+
 import { ReactNode } from 'react'
+import styles from './Button.module.css'
+import { motion } from 'framer-motion'
 
 interface ButtonProps {
   children: ReactNode
-  variant?: 'primary' | 'secondary' | 'outline'
-  size?: 'sm' | 'md' | 'lg'
   className?: string
   onClick?: () => void
   type?: 'button' | 'submit' | 'reset'
+  href?: string
+  target?: string
+  rel?: string
 }
 
 export default function Button({ 
   children, 
-  variant = 'primary', 
-  size = 'md', 
   className = '',
   onClick,
-  type = 'button'
+  type = 'button',
+  href,
+  target,
+  rel
 }: ButtonProps) {
-  const baseClasses = 'font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+  const classes = `${styles.button} ${className}`
   
-  const variants = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white',
-    secondary: 'bg-gray-600 hover:bg-gray-700 text-white',
-    outline: 'border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+  const handleAnchorClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href && href.startsWith('#')) {
+      event.preventDefault()
+      const targetId = href.slice(1)
+      const targetEl = document.getElementById(targetId)
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+    onClick?.()
   }
   
-  const sizes = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg'
+  if (href) {
+    return (
+      <motion.a
+        whileHover={{ y: -2, scale: 1.02 }}
+        whileTap={{ scale: 0.985 }}
+        href={href}
+        target={target}
+        rel={target === '_blank' ? (rel ?? 'noopener noreferrer') : undefined}
+        className={classes}
+        onClick={handleAnchorClick}
+        transition={{ type: 'spring', stiffness: 320, damping: 26 }}
+      >
+        {children}
+      </motion.a>
+    )
   }
-  
-  const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`
-  
+
   return (
-    <button 
+    <motion.button
+      whileHover={{ y: -2, scale: 1.02 }}
+      whileTap={{ scale: 0.985 }}
       type={type}
       className={classes}
       onClick={onClick}
+      transition={{ type: 'spring', stiffness: 320, damping: 26 }}
     >
       {children}
-    </button>
+    </motion.button>
   )
 }

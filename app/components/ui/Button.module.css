@@ -9,6 +9,10 @@
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .button:hover {

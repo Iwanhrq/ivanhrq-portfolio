@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import HydrationBoundary from "./components/ui/HydrationBoundary";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -23,13 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+      </head>
       <body
         className={`${inter.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        <HydrationBoundary>
-          {children}
-        </HydrationBoundary>
+        {children}
       </body>
     </html>
   );

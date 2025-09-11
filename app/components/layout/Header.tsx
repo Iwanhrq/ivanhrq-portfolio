@@ -1,7 +1,10 @@
 "use client"; // Necessário para hooks no Next.js 13+
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { fadeIn, fadeInUp, staggerContainer, slideInRight } from "../../lib/motion";
 import Link from "next/link";
+import styles from "./Header.module.css";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,57 +18,67 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-background text-white sticky top-0 z-50 border-b border-gray-500">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+    <header className={styles.header}>
+      <motion.div
+        className={styles.container}
+        variants={staggerContainer(0.22)}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className={styles.row}>
           {/* Logo */}
-          <div className="text-xl font-bold">Ivan Henrique</div>
+          <motion.div className={styles.logo} variants={fadeInUp}>
+            Ivan Henrique
+          </motion.div>
 
           {/* Menu Desktop (visível em telas maiores) */}
-          <nav className="hidden md:flex space-x-8">
+          <motion.nav className={styles.desktopNav} variants={fadeIn}>
             {["Home", "Sobre", "Projetos", "Contato"].map((item) => (
-              <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="hover:text-blue-400 transition-colors"
-              >
-                {item}
-              </Link>
+              <motion.div key={item} variants={fadeInUp}>
+                <Link
+                  href={`#${item.toLowerCase()}`}
+                  className={styles.desktopLink}
+                >
+                  {item}
+                </Link>
+              </motion.div>
             ))}
-          </nav>
+          </motion.nav>
 
           {/* Botão Hamburguer (visível apenas em mobile) */}
           <button
-            className="md:hidden focus:outline-none"
+            className={styles.hamburgerButton}
             onClick={toggleMenu}
             aria-label="Abrir menu"
           >
-            <div className="w-6 h-0.5 bg-white mb-1.5 transition-transform duration-300"></div>
-            <div className="w-6 h-0.5 bg-white mb-1.5 transition-opacity duration-300"></div>
-            <div className="w-6 h-0.5 bg-white transition-transform duration-300"></div>
+            <div className={`${styles.bar} ${styles.barTransform}`}></div>
+            <div className={`${styles.bar} ${styles.barOpacity}`}></div>
+            <div className={`${styles.bar} ${styles.barTransform}`}></div>
           </button>
         </div>
 
         {/* Menu Mobile (animado) */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-64" : "max-h-0"
-          }`}
+        <motion.div
+          className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : styles.closed}`}
+          variants={slideInRight}
+          initial={false}
+          animate={isMenuOpen ? "visible" : "hidden"}
+          transition={{ duration: 0.35, ease: "easeOut" }}
         >
-          <nav className="py-4 space-y-3">
+          <nav className={styles.mobileNav}>
             {["Home", "Sobre", "Projetos", "Contato"].map((item) => (
               <Link
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="block py-2 px-4 hover:bg-gray-800 rounded transition-colors"
+                className={styles.mobileLink}
                 onClick={closeMenu}
               >
                 {item}
               </Link>
             ))}
           </nav>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </header>
   );
 }

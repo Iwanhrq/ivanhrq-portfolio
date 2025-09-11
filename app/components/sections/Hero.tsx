@@ -1,21 +1,36 @@
-// sections/Hero.js
+"use client";
 import styles from './Hero.module.css';
-import Button from '../ui/Button'; // Importando o componente Button
+import Button from '../ui/Button'; 
+import { motion } from 'framer-motion';
+import { staggerContainer, fadeInUp, scaleIn } from '../../lib/motion';
+
+import { MoveDownRight } from 'lucide-react';
+
+
 
 export default function Hero() {
   return (
     <section className={styles.container}>
-      <div className={styles.textContainer}>
-        <h1 className={styles.title}>
+      <motion.div
+        className={styles.textContainer}
+        variants={staggerContainer(0.24)}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1 className={styles.title} variants={fadeInUp}>
           DESENVOLVEDOR FULLSTACK
-        </h1>
+        </motion.h1>
 
-        <h1 className={styles.subtitle}>
+        <motion.h1 className={styles.subtitle} variants={fadeInUp}>
           DO ZERO AO DEPLOY
-        </h1>
+        </motion.h1>
 
-        <Button>VER PROJETOS</Button> {/* Usando o componente Button */}
-      </div>
+        <motion.div variants={scaleIn}>
+          <Button href="#projects">
+            VER PROJETOS<MoveDownRight />
+          </Button>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
