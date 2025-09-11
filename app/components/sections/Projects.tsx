@@ -26,7 +26,7 @@ const projectsData = [
   {
     id: 2,
     title: "Vion",
-    description: "Para o projeto Vion, colaborei na criação do site oficial de divulgação do aplicativo Vion, desenvolvido para o Desafio de Dados 2025 da Fundação Telefônica Vivo. O site apresenta informações sobre o aplicativo, incluindo screenshots, animações 3D interativas e links para acesso ao app completo, proporcionando uma experiência imersiva e responsiva. Além disso, fui respnsável pelo desenvolvimento do aplicativo. . Este também foi um projeto em grupo.",
+    description: "Para o projeto Vion, colaborei na criação do site oficial de divulgação do aplicativo Vion, desenvolvido para o Desafio de Dados 2025 da Fundação Telefônica Vivo. O site apresenta informações sobre o aplicativo, incluindo screenshots, animações 3D interativas e links para acesso ao app completo, proporcionando uma experiência imersiva e responsiva. Além disso, fui respnsável pelo desenvolvimento do aplicativo. Este foi um projeto em grupo.",
     image: "/images/vion.png",
     repo: "https://github.com/marianaararipe/website-vion",
     techIcons: [
@@ -90,7 +90,7 @@ const projectsData = [
 
 export default function Projects() {
   return (
-    <section id="projects" className={styles.container}>
+    <section id="projetos" className={styles.container}>
       <ProjectsHeader items={projectsData.map(p => ({ id: p.id, title: p.title }))} />
       <motion.div
         className={styles.projectsWrapper}

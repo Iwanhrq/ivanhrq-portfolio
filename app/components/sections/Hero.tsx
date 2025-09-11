@@ -10,7 +10,7 @@ import { MoveDownRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className={styles.container}>
+    <section id="home" className={styles.container}>
       <motion.div
         className={styles.textContainer}
         variants={staggerContainer(0.24)}
@@ -26,7 +26,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.div variants={scaleIn}>
-          <Button href="#projects">
+          <Button href="#projetos">
             VER PROJETOS<MoveDownRight />
           </Button>
         </motion.div>

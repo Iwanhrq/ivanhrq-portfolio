@@ -7,7 +7,7 @@ import { MoveUpRight } from 'lucide-react';
 
 export default function About() {
   return (
-    <section className={styles.container}>
+    <section id="sobre" className={styles.container}>
       <motion.div
         className={styles.box}
         initial="hidden"

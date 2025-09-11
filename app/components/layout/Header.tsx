@@ -17,6 +17,18 @@ export default function Header() {
     setIsMenuOpen(false);
   };
 
+  const handleAnchorClick = (event: React.MouseEvent<HTMLAnchorElement>, href?: string) => {
+    if (href && href.startsWith("#")) {
+      event.preventDefault();
+      const targetId = href.slice(1);
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+    closeMenu();
+  };
+
   return (
     <header className={styles.header}>
       <motion.div
@@ -35,12 +47,13 @@ export default function Header() {
           <motion.nav className={styles.desktopNav} variants={fadeIn}>
             {["Home", "Sobre", "Projetos", "Contato"].map((item) => (
               <motion.div key={item} variants={fadeInUp}>
-                <Link
+                <a
                   href={`#${item.toLowerCase()}`}
                   className={styles.desktopLink}
+                  onClick={(e) => handleAnchorClick(e, `#${item.toLowerCase()}`)}
                 >
                   {item}
-                </Link>
+                </a>
               </motion.div>
             ))}
           </motion.nav>
@@ -67,14 +80,14 @@ export default function Header() {
         >
           <nav className={styles.mobileNav}>
             {["Home", "Sobre", "Projetos", "Contato"].map((item) => (
-              <Link
+              <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 className={styles.mobileLink}
-                onClick={closeMenu}
+                onClick={(e) => handleAnchorClick(e, `#${item.toLowerCase()}`)}
               >
                 {item}
-              </Link>
+              </a>
             ))}
           </nav>
         </motion.div>
